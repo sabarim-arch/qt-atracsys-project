@@ -26,6 +26,7 @@ private slots:
     void on_endButton_clicked();
     void generateData();  // simulate data
     void setupAtracsys();
+    void on_initButton_clicked();
 private:
     Ui::MainWindow *ui;
     SessionManager sessionManager;
