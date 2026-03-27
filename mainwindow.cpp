@@ -30,7 +30,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->startButton->setGraphicsEffect(startGlow);
     // ❌ REMOVE THIS (timer not needed anymore)
     // connect(&timer, &QTimer::timeout, this, &MainWindow::generateData);
-
+    // ✅ CALL FUNCTION HERE
+    setupAtracsys();
     const char* geomFile = "C:\\Program Files\\Atracsys\\simulator SDK x64\\data\\geometry011.ini";
 
     int initStatus = Initialize(nullptr, geomFile);
@@ -126,4 +127,18 @@ void MainWindow::on_endButton_clicked()
 void MainWindow::generateData()
 {
     // Not used anymore (logic moved to worker thread)
+}
+void MainWindow::setupAtracsys()
+{
+    const char* geomFile = "C:\\Program Files\\Atracsys\\simulator SDK x64\\data\\geometry011.ini";
+
+    int initStatus = Initialize(nullptr, geomFile);
+
+    if (initStatus != 0) {
+        qDebug() << "❌ Initialize failed:" << initStatus;
+    } else {
+        char deviceInfo[256];
+        GetDeviceInfo(deviceInfo, sizeof(deviceInfo));
+        qDebug() << "✅ Device connected:" << deviceInfo;
+    }
 }
