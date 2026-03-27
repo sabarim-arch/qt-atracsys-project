@@ -1,0 +1,5 @@
+C:/Users/sabar/OneDrive/Desktop/AtracsysSessionApp/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug2/CMakeFiles/AtracsysSessionApp.dir
+C:/Users/sabar/OneDrive/Desktop/AtracsysSessionApp/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug2/CMakeFiles/edit_cache.dir
+C:/Users/sabar/OneDrive/Desktop/AtracsysSessionApp/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug2/CMakeFiles/rebuild_cache.dir
+C:/Users/sabar/OneDrive/Desktop/AtracsysSessionApp/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug2/CMakeFiles/AtracsysSessionApp_autogen_timestamp_deps.dir
+C:/Users/sabar/OneDrive/Desktop/AtracsysSessionApp/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug2/CMakeFiles/AtracsysSessionApp_autogen.dir

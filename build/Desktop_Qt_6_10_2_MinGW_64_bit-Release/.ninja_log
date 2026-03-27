@@ -1,0 +1,19 @@
+# ninja log v6
+27	154	7962937496612770	AtracsysSessionApp_autogen/timestamp	f833a97cf9675aa2
+27	154	7962937496612770	AtracsysSessionApp_autogen/mocs_compilation.cpp	f833a97cf9675aa2
+27	154	7962937496612770	C:/Users/sabar/OneDrive/Desktop/AtracsysSessionApp/build/Desktop_Qt_6_10_2_MinGW_64_bit-Release/AtracsysSessionApp_autogen/timestamp	f833a97cf9675aa2
+27	154	7962937496612770	C:/Users/sabar/OneDrive/Desktop/AtracsysSessionApp/build/Desktop_Qt_6_10_2_MinGW_64_bit-Release/AtracsysSessionApp_autogen/mocs_compilation.cpp	f833a97cf9675aa2
+625	697	7962919998901198	CMakeFiles/AtracsysSessionApp.dir/atracsys_manager.cpp.obj	f4bc38700435b92d
+158	1356	7962937498036403	CMakeFiles/AtracsysSessionApp.dir/trackingworker.cpp.obj	9fb90345ae1abcd6
+621	2469	7962919998873983	CMakeFiles/AtracsysSessionApp.dir/sessionmanager.cpp.obj	bb266bb51ed69561
+615	2523	7962919998814058	CMakeFiles/AtracsysSessionApp.dir/main.cpp.obj	dfcfbb441e28f638
+612	2783	7962919998783913	CMakeFiles/AtracsysSessionApp.dir/AtracsysSessionApp_autogen/mocs_compilation.cpp.obj	8096915ce6a0b6ec
+155	1923	7962937498006413	CMakeFiles/AtracsysSessionApp.dir/mainwindow.cpp.obj	2617f851f5074ac8
+1923	2037	7962937515682692	AtracsysSessionApp.exe	6e607d9c8ae51ba1
+28	168	7962940086524844	AtracsysSessionApp_autogen/timestamp	f833a97cf9675aa2
+28	168	7962940086524844	AtracsysSessionApp_autogen/mocs_compilation.cpp	f833a97cf9675aa2
+28	168	7962940086524844	C:/Users/sabar/OneDrive/Desktop/AtracsysSessionApp/build/Desktop_Qt_6_10_2_MinGW_64_bit-Release/AtracsysSessionApp_autogen/timestamp	f833a97cf9675aa2
+28	168	7962940086524844	C:/Users/sabar/OneDrive/Desktop/AtracsysSessionApp/build/Desktop_Qt_6_10_2_MinGW_64_bit-Release/AtracsysSessionApp_autogen/mocs_compilation.cpp	f833a97cf9675aa2
+172	1562	7962940087963380	CMakeFiles/AtracsysSessionApp.dir/trackingworker.cpp.obj	9fb90345ae1abcd6
+169	2191	7962940087932869	CMakeFiles/AtracsysSessionApp.dir/mainwindow.cpp.obj	2617f851f5074ac8
+2191	2306	7962940108146964	AtracsysSessionApp.exe	6e607d9c8ae51ba1
