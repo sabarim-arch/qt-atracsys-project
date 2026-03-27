@@ -33,7 +33,6 @@ MainWindow::MainWindow(QWidget *parent)
     initGlow->setBlurRadius(25);
     initGlow->setColor(QColor(0, 170, 255)); // 🔵 blue glow (nice for init)
     initGlow->setOffset(0);
-    ui->initButton->setText("Initialized ✅");
     ui->initButton->setGraphicsEffect(initGlow);
     // ❌ REMOVE THIS (timer not needed anymore)
     // connect(&timer, &QTimer::timeout, this, &MainWindow::generateData);
