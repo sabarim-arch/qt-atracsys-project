@@ -38,6 +38,7 @@ qt_add_executable(AtracsysSessionApp
     MANUAL_FINALIZATION
     ${PROJECT_SOURCES}
     trackingworker.h trackingworker.cpp
+    resources.qrc
 )
 
 # ==============================
