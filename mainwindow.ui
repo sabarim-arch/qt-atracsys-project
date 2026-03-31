@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>773</width>
-    <height>600</height>
+    <width>812</width>
+    <height>574</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -77,9 +77,9 @@
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>30</y>
+      <y>0</y>
       <width>231</width>
-      <height>41</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -107,20 +107,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">#initButton {
-    background-color: #3498db;   /* 🔵 blue */
-    color: white;
-    border-radius: 10px;
-    padding: 12px;
-    font-size: 14px;
-    border: none;
-}
-
-/* 🔥 Hover (lighter blue + glow feel) */
-#initButton:hover {
-    background-color: #5dade2;
-    border: 2px solid #85c1e9;
-}</string>
+     <string notr="true">#initButton { background-color: #3498db;   /* 🔵 blue */ color: white; border-radius: 10px; padding: 12px; font-size: 14px; border: none; } /* 🔥 Hover (lighter blue + glow feel) */ #initButton:hover { background-color: #5dade2; border: 2px solid #85c1e9; }</string>
     </property>
     <property name="text">
      <string>Initialize</string>
@@ -132,7 +119,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>773</width>
+     <width>812</width>
      <height>24</height>
     </rect>
    </property>

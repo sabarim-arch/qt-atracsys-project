@@ -36,7 +36,10 @@ private:
     QString m_sessionFilePath;
     QThread *workerThread;
     TrackingWorker *worker;
-
+    int frameCount = 0;
+    
+protected:
+    void resizeEvent(QResizeEvent *event) override;
 signals:
     void startWorker();
     void stopWorker();
