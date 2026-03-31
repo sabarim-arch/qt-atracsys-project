@@ -36,8 +36,10 @@ private:
     QString m_sessionFilePath;
     QThread *workerThread;
     TrackingWorker *worker;
-    int frameCount = 0;
-    
+    QTimer *bgAnimTimer;
+    int glowAlpha = 60;
+    bool glowIncreasing = true;
+
 protected:
     void resizeEvent(QResizeEvent *event) override;
 signals:

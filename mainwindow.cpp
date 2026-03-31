@@ -18,6 +18,39 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->statusLabel->hide();
+
+    QPixmap logo("C:/Users/sabar/OneDrive/Desktop/AtracsysSessionApp/images/atracsys_logo.png");
+
+    ui->logoLabel->setPixmap(
+        logo.scaled(520, 220, Qt::KeepAspectRatio, Qt::SmoothTransformation)
+        );
+
+    ui->logoLabel->setFixedSize(520, 220);
+    ui->logoLabel->setAlignment(Qt::AlignCenter);
+
+    auto logoGlow = new QGraphicsDropShadowEffect(this);
+    logoGlow->setBlurRadius(25);
+    logoGlow->setOffset(0, 0);
+    logoGlow->setColor(QColor(0, 255, 255, 150));
+
+    ui->logoLabel->setGraphicsEffect(logoGlow);
+
+    ui->initButton->hide();
+    ui->startButton->hide();
+    ui->endButton->hide();
+
+    QTimer::singleShot(400, this, [this]() {
+        ui->initButton->show();
+    });
+
+    QTimer::singleShot(700, this, [this]() {
+        ui->startButton->show();
+    });
+
+    QTimer::singleShot(1000, this, [this]() {
+        ui->endButton->show();
+    });
 
     setStyleSheet(
         "QMainWindow {"
@@ -29,17 +62,44 @@ MainWindow::MainWindow(QWidget *parent)
         "}"
         );
 
+    bgAnimTimer = new QTimer(this);
+
+    connect(bgAnimTimer, &QTimer::timeout, this, [this]() {
+
+        if (glowIncreasing) {
+            glowAlpha += 2;
+            if (glowAlpha >= 90)
+                glowIncreasing = false;
+        } else {
+            glowAlpha -= 2;
+            if (glowAlpha <= 40)
+                glowIncreasing = true;
+        }
+
+        setStyleSheet(QString(
+                          "QMainWindow {"
+                          "background: qradialgradient("
+                          "cx:0.5, cy:0.3, radius:1.2,"
+                          "fx:0.5, fy:0.3,"
+                          "stop:0 rgba(0, 180, 255, %1),"
+                          "stop:0.4 #1E293B,"
+                          "stop:1 #0F172A"
+                          ");"
+                          "}"
+                          ).arg(glowAlpha));
+
+    });
+
+    bgAnimTimer->start(80);
+
     ui->statusLabel->setStyleSheet(
         "QLabel {"
-        "color: #87CEFA;"
-        "font-size: 22px;"
-        "font-weight: bold;"
-        "padding: 8px;"
-        "border-radius: 8px;"
-        "}"
-        "QLabel:hover {"
-        "color: #00FFFF;"
-        "background-color: rgba(0, 255, 255, 30);"
+        "color: #E2E8F0;"
+        "font-size: 30px;"
+        "font-weight: 700;"
+        "font-family: 'Segoe UI';"
+        "background: transparent;"
+        "border: none;"
         "}"
         );
 
@@ -112,12 +172,19 @@ MainWindow::MainWindow(QWidget *parent)
         "}"
         );
 
-
     auto titleGlow = new QGraphicsDropShadowEffect(this);
     titleGlow->setBlurRadius(20);
     titleGlow->setOffset(0, 0);
     titleGlow->setColor(QColor(0, 255, 255, 180));
     ui->statusLabel->setGraphicsEffect(titleGlow);
+
+    auto glowPulse = new QPropertyAnimation(titleGlow, "blurRadius");
+    glowPulse->setDuration(1500);
+    glowPulse->setStartValue(15);
+    glowPulse->setEndValue(30);
+    glowPulse->setLoopCount(-1);
+    glowPulse->setEasingCurve(QEasingCurve::InOutSine);
+    glowPulse->start();
 
 
     auto blueGlow = new QGraphicsDropShadowEffect(this);
@@ -150,9 +217,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->statusLabel->setGraphicsEffect(titleEffect);
 
     auto titleFade = new QPropertyAnimation(titleEffect, "opacity");
-    titleFade->setDuration(800);
+    titleFade->setDuration(1200);
     titleFade->setStartValue(0);
     titleFade->setEndValue(1);
+    titleFade->setEasingCurve(QEasingCurve::OutCubic);
 
     // Slide buttons
     auto initAnim = new QPropertyAnimation(ui->initButton, "pos");
@@ -240,6 +308,9 @@ void MainWindow::on_startButton_clicked()
 
     // 🆕 START WORKER
     emit startWorker();
+    // Button state control
+    ui->startButton->setEnabled(false);
+    ui->endButton->setEnabled(true);
 }
 
 void MainWindow::on_endButton_clicked()
@@ -249,10 +320,10 @@ void MainWindow::on_endButton_clicked()
     sessionManager.endSession();
 
     StopTracking();
-    Cleanup();   // 🔥 proper shutdown
-    // 🔁 Allow re-initialization
-    ui->initButton->setEnabled(true);
-    ui->startButton->setEnabled(false);
+
+    // Allow start again
+    ui->startButton->setEnabled(true);
+    ui->endButton->setEnabled(false);
 }
 
 
@@ -281,18 +352,19 @@ void MainWindow::on_initButton_clicked()
     // 🔥 Disable after init
     ui->initButton->setEnabled(false);
 
-    // Optional: enable start button
+    // Start allowed after init
     ui->startButton->setEnabled(true);
+    ui->endButton->setEnabled(false);
 }
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
     QMainWindow::resizeEvent(event);
 
     int centerX = width() / 2;
-    int startY = height() / 3;
-
+    int startY = height() / 3 + 20;
+    ui->logoLabel->move(centerX - ui->logoLabel->width() / 2, startY - 240);
     // Title
-    ui->statusLabel->move(centerX - ui->statusLabel->width() / 2, startY - 100);
+    ui->statusLabel->move(centerX - ui->statusLabel->width() / 2, startY - 140);
 
     // Initialize button
     ui->initButton->move(centerX - ui->initButton->width() / 2, startY);
