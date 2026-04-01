@@ -201,7 +201,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     bgAnimation->start();
 
-    QPixmap logo("C:/Users/sabar/OneDrive/Desktop/AtracsysSessionApp/images/atracsys_logo.png");
+    QPixmap logo(":/images/atracsys_logo.png");
 
     ui->logoLabel->setPixmap(
         logo.scaled(520, 220, Qt::KeepAspectRatio, Qt::SmoothTransformation)
@@ -539,7 +539,7 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     int logoW = 520 * scale;
     int logoH = 220 * scale;
 
-    QPixmap logo("C:/Users/sabar/OneDrive/Desktop/AtracsysSessionApp/images/atracsys_logo.png");
+    QPixmap logo(":/images/atracsys_logo.png");
 
     ui->logoLabel->setPixmap(
         logo.scaled(logoW, logoH,
@@ -632,8 +632,7 @@ void MainWindow::on_backButton_clicked()
 
 void MainWindow::on_captureButton_clicked()
 {
-    QString basePath =
-        "C:/Users/sabar/OneDrive/Desktop/AtracsysSessionApp/build/Desktop_Qt_6_10_2_MinGW_64_bit-Release";
+    QString basePath = QDir::currentPath();
 
     QString mainFolder = basePath + "/3D Saved Video";
     QString imageFolder = mainFolder + "/Images";
