@@ -9,6 +9,7 @@
 #include <QDateTime>
 #include <QThread>
 #include "trackingworker.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -27,6 +28,12 @@ private slots:
     void generateData();  // simulate data
     void setupAtracsys();
     void on_initButton_clicked();
+    void on_switch3DButton_clicked();
+    void on_backButton_clicked();
+    void on_captureButton_clicked();
+    void on_init3DButton_clicked();
+
+
 private:
     Ui::MainWindow *ui;
     SessionManager sessionManager;
